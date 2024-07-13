@@ -1,6 +1,6 @@
 
 <div align="center">
-  <h1>Comprehensive Project README Template</h1>
+  <h1>RpCamper README File</h1>
 </div>
 
 ---
@@ -24,13 +24,23 @@ Detailed description of the project, including its purpose and goals.
 
 - React-Vite, Typescript, react-router-dom, react-hook-form, redux
 
-## Installation Guideline
+## Installation Guideline For RpCamper-Client (Frontend)
+- npm create vite
+- Project name: RpCamper
+- Package name: rpcamper
+- Select a framework: React
+- Select a variant: Typescript
 
-Instructions on how to install, configure, and get the project running locally.
+### Run in LocalHost
+- cd RpCamper
+- npm install
+- npm run dev
 
 ### Prerequisites
-
-- List any software or dependencies that need to be installed beforehand (if any).
+- npm i react-hook-form
+- npm i react-router-dom
+- npm install react-redux
+- npm install @reduxjs/toolkit
 
 ### Installation Steps
 
