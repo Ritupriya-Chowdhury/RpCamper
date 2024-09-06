@@ -22,7 +22,7 @@ Detailed description of the project, including its purpose and goals.
 
 ## Technology Uses
 
-- React-Vite, Typescript, react-router-dom, react-hook-form, redux
+- React-Vite, Typescript, react-router-dom, react-hook-form, redux, tailwind, DaisyUi, rsuite
 
 ## Installation Guideline For RpCamper-Client (Frontend)
 - npm create vite
@@ -41,6 +41,8 @@ Detailed description of the project, including its purpose and goals.
 - npm i react-router-dom
 - npm install react-redux
 - npm install @reduxjs/toolkit
+- npm i react-icons
+- npm i --save-dev @types/aos
 
 ### Installation Steps
 
