@@ -4,19 +4,21 @@ import { FaMoon } from "react-icons/fa";
 import { IoSunny } from "react-icons/io5";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import { setTheme, toggleMenu } from "../../redux/features/navbarSlice";
+import {  toggleMenu } from "../../redux/features/navbarSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+import { toggleTheme } from "../../redux/features/themeSlice";
 
 
 
 const Navbar = () => {
   const dispatch: AppDispatch = useDispatch();
-  const { isMenuOpen, theme } = useSelector((state: RootState) => state.navbar);
+  const { isMenuOpen } = useSelector((state: RootState) => state.navbar);
+  const theme = useSelector((state: RootState) => state.theme.theme);
+
 
   const handleThemeToggle = () => {
-    dispatch(setTheme(theme === "dark" ? "light" : "dark"));
+    dispatch(toggleTheme());
   };
-
   const handleMenuToggle = () => {
     dispatch(toggleMenu());
   };
@@ -111,11 +113,7 @@ const Navbar = () => {
           />
         )}
       </div>
-      <div>
-        <button className="bg-yellow-400 text-black px-4 py-2 mr-2 rounded">
-          Login
-        </button>
-      </div>
+      
 
       {/* Responsive Menu */}
       <div

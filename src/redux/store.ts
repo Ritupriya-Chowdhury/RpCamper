@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import  navbarReducer from './features/navbarSlice';
+import themeReducer from './features/themeSlice'
 
 export const store = configureStore({
     reducer: {
       navbar :  navbarReducer,
+      theme: themeReducer
     },
 })
 
