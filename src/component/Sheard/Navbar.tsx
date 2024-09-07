@@ -45,8 +45,8 @@ const Navbar = () => {
               className={`transition-colors duration-100 
           ${
             theme === "light"
-              ? "hover:text-violet-700"
-              : "hover:text-violet-300"
+              ? "hover:text-violet-700  hover:border border-violet-700 rounded-lg p-2"
+              : "hover:text-violet-300 hover:border border-violet-300 rounded-lg p-2"
           }`}
             >
               Home
@@ -55,8 +55,8 @@ const Navbar = () => {
               to="/about"
               className={`transition-colors duration-100  ${
                 theme === "light"
-                  ? "hover:text-violet-700"
-                  : "hover:text-violet-300"
+                  ? "hover:text-violet-700 hover:border border-violet-700 rounded-lg p-2"
+                  : "hover:text-violet-300 hover:border border-violet-300 rounded-lg p-2"
               }`}
             >
               About Us
@@ -65,8 +65,8 @@ const Navbar = () => {
               to="/booking"
               className={`transition-colors duration-100  ${
                 theme === "light"
-                  ? "hover:text-violet-700"
-                  : "hover:text-violet-300"
+                  ? "hover:text-violet-700 hover:border border-violet-700 rounded-lg p-2"
+                  : "hover:text-violet-300 hover:border border-violet-300 rounded-lg p-2"
               }`}
             >
               Booking
@@ -75,8 +75,8 @@ const Navbar = () => {
               to="/contact"
               className={`transition-colors duration-100  ${
                 theme === "light"
-                  ? "hover:text-violet-700"
-                  : "hover:text-violet-300"
+                  ? "hover:text-violet-700 hover:border border-violet-700 rounded-lg p-2"
+                  : "hover:text-violet-300 hover:border border-violet-300 rounded-lg p-2"
               }`}
             >
               Contact
@@ -94,13 +94,19 @@ const Navbar = () => {
         {isMenuOpen ? (
           <HiMenuAlt1
             onClick={handleMenuToggle}
-            className=" cursor-pointer transition-all"
+            className={` cursor-pointer transition-all ${theme === "light"
+            ? "text-sky-600"
+            : "text-sky-300"
+        }`}
             size={30}
           />
         ) : (
           <HiMenuAlt3
             onClick={handleMenuToggle}
-            className="cursor-pointer transition-all"
+            className={`cursor-pointer transition-all ${theme === "light"
+            ? "text-sky-600"
+            : "text-sky-300"}
+        `}
             size={30}
           />
         )}
