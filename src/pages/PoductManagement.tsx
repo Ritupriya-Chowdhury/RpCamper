@@ -1,20 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../redux/store'; // Ensure you import AppDispatch
+import { RootState, AppDispatch } from '../redux/store';
 import { useEffect, useState } from 'react';
 import { Product } from '../types/product';
 import { deleteProduct, fetchProducts } from '../redux/features/productSlice';
 import { MdDelete } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../redux/hooks';
+import { useBeforeUnload } from '../component/RefreshWarning';
 
 const ProductManagement = () => {
-
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  const items = useAppSelector((state: RootState) => state.cart.items);
+ useBeforeUnload(items.length > 0);
   const dispatch: AppDispatch = useDispatch();
   const { products, loading, error } = useSelector((state: RootState) => state.products);
   const [showConfirmDelete, setShowConfirmDelete] = useState<boolean>(false);
   const [productToDelete, setProductToDelete] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState<boolean>(false);
 
   useEffect(() => {
-    dispatch(fetchProducts()); // Now dispatch is correctly typed for async thunk
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   const handleDelete = (productId: string) => {
@@ -22,11 +27,13 @@ const ProductManagement = () => {
     setShowConfirmDelete(true);
   };
 
-  const confirmDelete = () => {
+  const confirmDelete = async () => {
     if (productToDelete) {
-      dispatch(deleteProduct(productToDelete));
+      setDeleting(true);
+      await dispatch(deleteProduct(productToDelete));
       setShowConfirmDelete(false);
       setProductToDelete(null);
+      setDeleting(false);
     }
   };
 
@@ -34,11 +41,12 @@ const ProductManagement = () => {
     setShowConfirmDelete(false);
     setProductToDelete(null);
   };
+
   return (
-    <div className="container mx-auto p-6 mt-20">
+    <div className={`p-6 pt-32 ${theme === 'dark' ? 'bg-gray-400' : 'bg-gray-200'}`}>
       <div className="mb-6 flex justify-between items-center">
-        <h2 className="text-2xl font-semibold">Product Management</h2>
-        <Link to='/create-product' className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 transition duration-300">
+        <h2 className={`text-2xl font-semibold ${theme === 'dark' ? 'text-sky-700' : ''}`}>Product Management</h2>
+        <Link to='/create-product' className="px-4 py-2 bg-sky-500 text-white rounded-md shadow-sm hover:bg-sky-600 transition duration-300">
           Create New Product
         </Link>
       </div>
@@ -47,9 +55,9 @@ const ProductManagement = () => {
       {error && <p className="text-center text-red-500">Error: {error}</p>}
 
       {!loading && !error && (
-        <table className="w-full bg-white border border-gray-300 rounded-md shadow-md">
+        <table className="w-full bg-gray-100 border border-gray-300 rounded-md shadow-md">
           <thead>
-            <tr className="bg-gray-100 border-b border-gray-300">
+            <tr className="bg-gray-200 border-b border-gray-300">
               <th className="p-4 text-left">Image</th>
               <th className="p-4 text-left">Name</th>
               <th className="p-4 text-left">Price</th>
@@ -67,9 +75,9 @@ const ProductManagement = () => {
                 <td className="p-4">${product.price}</td>
                 <td className="p-4">{product.category}</td>
                 <td className="p-4">
-                  <button className="px-4 py-2 bg-yellow-500 text-white rounded-md shadow-sm hover:bg-yellow-600 transition duration-300 mr-2">
+                  <Link to={`/update-product/${product._id}`} className="px-4 py-2 bg-sky-500 text-white rounded-md shadow-sm hover:bg-sky-600 transition duration-300 mr-2">
                     Update
-                  </button>
+                  </Link>
                   <button
                     onClick={() => handleDelete(product._id)}
                     className="mt-3 text-red-500 rounded-md text-3xl shadow-sm hover:text-red-600 transition duration-300"
@@ -90,9 +98,10 @@ const ProductManagement = () => {
             <div className="flex justify-end space-x-4">
               <button
                 onClick={confirmDelete}
-                className="px-4 py-2 bg-red-500 text-white rounded-md shadow-sm hover:bg-red-600 transition duration-300"
+                disabled={deleting}
+                className={`px-4 py-2 ${deleting ? 'bg-red-300' : 'bg-red-500'} text-white rounded-md shadow-sm hover:bg-red-600 transition duration-300`}
               >
-                Confirm
+                {deleting ? 'Deleting...' : 'Confirm'}
               </button>
               <button
                 onClick={cancelDelete}

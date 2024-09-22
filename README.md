@@ -45,6 +45,8 @@ Detailed description of the project, including its purpose and goals.
 - npm i --save-dev @types/aos
 - npm install swiper react
 - npm i aos
+- npm install react-image-magnify
+
 
 ### Installation Steps
 

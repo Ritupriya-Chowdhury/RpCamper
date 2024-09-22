@@ -1,4 +1,3 @@
-// cartSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '../../types/product';
 
@@ -46,9 +45,12 @@ const cartSlice = createSlice({
     },
     removeFromCart(state, action: PayloadAction<string>) {
       state.items = state.items.filter(item => item.product._id !== action.payload);
+    },
+    clearCart(state) {
+      state.items = []; // Clear the cart
     }
   },
 });
 
-export const { addToCart, incrementQuantity, decrementQuantity, removeFromCart } = cartSlice.actions;
+export const { addToCart, incrementQuantity, decrementQuantity, removeFromCart, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

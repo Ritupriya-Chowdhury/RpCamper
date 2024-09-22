@@ -13,9 +13,9 @@ const Navbar = () => {
   const dispatch: AppDispatch = useDispatch();
   const { isMenuOpen } = useSelector((state: RootState) => state.navbar);
   const theme = useSelector((state: RootState) => state.theme.theme);
-
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
+  // Calculate total cart item count
   const cartItemCount = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
@@ -46,56 +46,23 @@ const Navbar = () => {
             theme === "light" ? "text-sky-600" : "text-sky-300"
           }`}
         >
-          <Link
-            to="/"
-            className={`transition-colors duration-100 ${
-              theme === "light"
-                ? "hover:text-violet-700"
-                : "hover:text-violet-400"
-            }`}
-          >
+          <Link to="/" className={`transition-colors duration-100 ${theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"}`}>
             Home
           </Link>
-          <Link
-            to="/products"
-            className={`transition-colors duration-100 ${
-              theme === "light"
-                ? "hover:text-violet-700"
-                : "hover:text-violet-400"
-            }`}
-          >
+          <Link to="/products" className={`transition-colors duration-100 ${theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"}`}>
             Products
           </Link>
-          <Link
-            to="/product-management"
-            className={`transition-colors duration-100 ${
-              theme === "light"
-                ? "hover:text-violet-700"
-                : "hover:text-violet-400"
-            }`}
-          >
+          <Link to="/product-management" className={`transition-colors duration-100 ${theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"}`}>
             Product Management
           </Link>
-          <Link
-            to="/about"
-            className={`transition-colors duration-100 ${
-              theme === "light"
-                ? "hover:text-violet-700"
-                : "hover:text-violet-400"
-            }`}
-          >
+          <Link to="/about" className={`transition-colors duration-100 ${theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"}`}>
             About Us
           </Link>
-          <Link
-            to="/cart"
-            className={`relative transition-colors duration-100 ${
-              theme === "light"
-                ? "hover:text-violet-700"
-                : "hover:text-violet-400"
-            }`}
-          >
+          <Link to="/cart" className={`relative transition-colors duration-100 ${theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"}`}>
             <FaShoppingCart className="text-2xl" />
-            <p className=" text-red-500   px-2 mt-1 ">{cartItemCount}</p>
+            {cartItemCount > 0 && (
+              <p className="text-red-500 px-2 mt-1">{cartItemCount}</p>
+            )}
           </Link>
           <div className="cursor-pointer" onClick={handleThemeToggle}>
             {theme === "dark" ? (
@@ -110,17 +77,13 @@ const Navbar = () => {
         {isMenuOpen ? (
           <HiMenuAlt1
             onClick={handleMenuToggle}
-            className={`cursor-pointer transition-all ${
-              theme === "light" ? "text-sky-600" : "text-sky-300"
-            }`}
+            className={`cursor-pointer transition-all ${theme === "light" ? "text-sky-600" : "text-sky-300"}`}
             size={30}
           />
         ) : (
           <HiMenuAlt3
             onClick={handleMenuToggle}
-            className={`cursor-pointer transition-all ${
-              theme === "light" ? "text-sky-600" : "text-sky-300"
-            }`}
+            className={`cursor-pointer transition-all ${theme === "light" ? "text-sky-600" : "text-sky-300"}`}
             size={30}
           />
         )}
@@ -144,9 +107,7 @@ const Navbar = () => {
               <Link
                 to="/"
                 className={`transition-colors duration-100 ${
-                  theme === "light"
-                    ? "hover:text-violet-700"
-                    : "hover:text-violet-400"
+                  theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"
                 }`}
               >
                 Home
@@ -156,9 +117,7 @@ const Navbar = () => {
               <Link
                 to="/products"
                 className={`transition-colors duration-100 ${
-                  theme === "light"
-                    ? "hover:text-violet-700"
-                    : "hover:text-violet-400"
+                  theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"
                 }`}
               >
                 Products
@@ -168,9 +127,7 @@ const Navbar = () => {
               <Link
                 to="/product-management"
                 className={`transition-colors duration-100 ${
-                  theme === "light"
-                    ? "hover:text-violet-700"
-                    : "hover:text-violet-400"
+                  theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"
                 }`}
               >
                 Product Management
@@ -180,9 +137,7 @@ const Navbar = () => {
               <Link
                 to="/about"
                 className={`transition-colors duration-100 ${
-                  theme === "light"
-                    ? "hover:text-violet-700"
-                    : "hover:text-violet-400"
+                  theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"
                 }`}
               >
                 About Us
@@ -192,21 +147,18 @@ const Navbar = () => {
               <Link
                 to="/cart"
                 className={`flex relative transition-colors duration-100 ${
-                  theme === "light"
-                    ? "hover:text-violet-700"
-                    : "hover:text-violet-400"
+                  theme === "light" ? "hover:text-violet-700" : "hover:text-violet-400"
                 }`}
               >
                 <FaShoppingCart className="text-2xl" />
-                <p className=" text-red-500 px-2  ">{cartItemCount}</p>
+                {cartItemCount > 0 && (
+                  <p className="text-red-500 px-2">{cartItemCount}</p>
+                )}
               </Link>
             </li>
           </ul>
         </nav>
-        <div
-          className="text-2xl mt-4 cursor-pointer"
-          onClick={handleThemeToggle}
-        >
+        <div className="text-2xl mt-4 cursor-pointer" onClick={handleThemeToggle}>
           {theme === "dark" ? (
             <IoSunny className="text-sky-300 hover:text-violet-400" />
           ) : (

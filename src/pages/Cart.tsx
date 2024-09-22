@@ -1,16 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import {  useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CartItem } from '../types/cart';
 import { incrementQuantity, decrementQuantity, removeFromCart } from '../redux/features/cartSlice';
 import { Link } from 'react-router-dom';
+import { useBeforeUnload } from '../component/RefreshWarning';
 
 const CartPage = () => {
   const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme.theme);
   const items = useSelector((state: RootState) => state.cart.items);
 
   const [showConfirmRemove, setShowConfirmRemove] = useState<boolean>(false);
   const [itemToRemove, setItemToRemove] = useState<string | null>(null);
+  useBeforeUnload(items.length > 0);
+  
+  useEffect(() => {
+   
+    const isCheckoutSuccessful = false; 
+    if (isCheckoutSuccessful) {
+      // Reset cart logic
+      // dispatch(resetCart()); 
+    }
+  }, [dispatch]);
 
   const handleRemove = (productId: string) => {
     setItemToRemove(productId);
@@ -32,15 +44,17 @@ const CartPage = () => {
 
   const totalPrice = items.reduce((total, item) => total + item.product.price * item.quantity, 0);
 
+
+
   return (
-    <div className="container mx-auto p-6 mt-20">
-      <h2 className="text-2xl font-semibold mb-6">Cart</h2>
+    <div className={`pb-6 pt-28 md:px-12 px-2 ${theme === 'dark' ? 'bg-gray-400' : 'bg-gray-200 '}`}>
+      <h2 className="text-2xl font-semibold mb-4 mt-4 lg:ml-12">Cart</h2>
 
-      {items.length === 0 && <p className="text-center">Your cart is empty.</p>}
+      {items.length === 0 && <p className="text-center text-3xl mb-2 text-red-500">Your cart is empty.</p>}
 
-      <div className="bg-white border border-gray-300 rounded-md shadow-md p-6">
+      <div className={`${theme === 'dark' ? 'bg-gray-200' : 'bg-white'} border border-gray-300 rounded-md shadow-md p-6`}>
         {items.map((item: CartItem) => (
-          <div key={item.product._id} className="flex items-center border-b border-gray-200 py-4">
+          <div key={item.product._id} className="flex items-center border-b border-gray-200 py-4 px-2 w-11/12">
             <img src={item.product.images[0]} alt={item.product.name} className="w-24 h-24 object-cover rounded-md mr-4" />
             <div className="flex-grow">
               <h3 className="text-lg font-semibold">{item.product.name}</h3>
@@ -73,10 +87,11 @@ const CartPage = () => {
         ))}
 
         <div className="mt-6 border-t border-gray-300 pt-4">
-          <h3 className="text-xl font-semibold">Total Price: ${totalPrice.toFixed(2)}</h3>
+          <h3 className="text-xl font-semibold mb-12">Total Price: ${totalPrice.toFixed(2)}</h3>
           <Link
             to="/checkout"
-            className={`mt-4 px-4 py-2 bg-green-500 text-white rounded-md shadow-sm hover:bg-green-600 transition duration-300 ${totalPrice <= 0 ? 'cursor-not-allowed opacity-50' : ''}`}
+            className={`mt-8 px-4 py-2 bg-sky-500 text-white rounded-md shadow-sm 
+            hover:bg-sky-600 transition duration-300 ${totalPrice <= 0 ? 'cursor-not-allowed opacity-50' : ''}`}
             aria-disabled={totalPrice <= 0}
           >
             Place Order

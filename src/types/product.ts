@@ -8,6 +8,16 @@ export type  Product ={
     ratings: number;
     images: string[];
   }
+export type  CreateProduct ={
+   
+    name: string;
+    price: number;
+    stockQuantity: number;
+    description: string;
+    category: string;
+    ratings: number;
+    images: string[];
+  }
  export interface ProductsState {
     products: Product[];
     loading: boolean;

@@ -2,9 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RootState } from '../redux/store';
 import { addToCart } from '../redux/features/cartSlice';
+import { useAppSelector } from '../redux/hooks';
+import { useBeforeUnload } from '../component/RefreshWarning';
 
 
 const ProductDetails = () => {
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  const items = useAppSelector((state: RootState) => state.cart.items);
+ useBeforeUnload(items.length > 0);
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();
   const product = useSelector((state: RootState) =>
@@ -28,8 +33,9 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex flex-wrap -mx-4">
+
+    <div className={`px-8 p-4 pt-32 ${theme==='dark'?'bg-gray-400 text-black':'bg-gray-200'}`}>
+      <div className="flex flex-wrap mx-4">
         <div className="w-full md:w-1/2 px-4">
           <img src={product.images[0]} alt={product.name} className="w-full rounded-lg shadow-md" />
           <div className="flex mt-4 space-x-2">
@@ -38,7 +44,7 @@ const ProductDetails = () => {
             ))}
           </div>
         </div>
-        <div className="w-full md:w-1/2 px-4">
+        <div className="w-full md:w-1/2 md:px-4 px-1 lg:py-12 md:py-0 py-8 ">
           <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
           <p className="text-xl font-semibold mb-4">${product.price.toFixed(2)}</p>
           <p className="mb-4">Stock Quantity: {product.stockQuantity}</p>
@@ -48,7 +54,7 @@ const ProductDetails = () => {
           <button
             onClick={handleAddToCart}
             className={`px-6 py-3 rounded-lg text-white transition duration-300 ${
-              isOutOfStock || isMaxQuantityReached ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+              isOutOfStock || isMaxQuantityReached ? 'bg-gray-400 cursor-not-allowed' : 'bg-sky-600 hover:bg-sky-700'
             }`}
             disabled={isOutOfStock || isMaxQuantityReached}
           >
