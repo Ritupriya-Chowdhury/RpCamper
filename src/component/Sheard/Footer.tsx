@@ -18,12 +18,12 @@ const Footer = () => {
         theme === "dark" ? "bg-gray-900 text-sky-500" : "bg-gray-300 text-sky-600"
       }`}
     >
-    <div className={`border-b-2 pb-12 ${
+    <div className={`border-b-2 pb-12 pt-20 ${
         theme==='dark'?"border-sky-500":"border-sky-600"
     }`}>
     <div
         className={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 
-        border border-black w-11/12 mx-auto rounded-md shadow-md 
+        border border-black w-11/12 mx-auto rounded-md shadow-md  
         ${
           theme == "dark" ? "bg-gray-400 text-sky-600" : "bg-blue-950 text-sky-500"
         } p-8`}

@@ -8,6 +8,7 @@ import Cart from "../pages/Cart";
 import AboutUs from "../pages/AboutUs";
 import CheckOut from "../pages/CheckOut";
 import Success from "../pages/Success";
+import CreateProduct from "../pages/NewProduct";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       path: '/',
       element: <App />,
       children: [
+        
         {
           path: '',
           element: <Home />
@@ -32,11 +34,15 @@ const router = createBrowserRouter([
           element: <ProductManagement />
         },
         {
+          path: 'create-product',
+          element: <CreateProduct/>
+        },
+        {
           path: 'cart',
           element: <Cart />
         },
         {
-          path: 'about-us',
+          path: 'about',
           element: <AboutUs />
         },
         {
