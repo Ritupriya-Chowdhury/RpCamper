@@ -20,7 +20,7 @@ const CreateProduct = () => {
  useBeforeUnload(items.length > 0);
   const dispatch = useAppDispatch();
   const [images, setImages] = useState<string[]>([]); 
-  const { isLoading, error } = useAppSelector((state: RootState) => state.products); 
+  const { loading, error } = useAppSelector((state: RootState) => state.products);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ProductForm>();
 
@@ -144,9 +144,9 @@ const CreateProduct = () => {
           <button
             type="submit"
             className="w-full py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-md"
-            disabled={isLoading}
+            disabled={loading}
           >
-            {isLoading ? 'Creating Product...' : 'Create Product'}
+            {loading ? 'Creating Product...' : 'Create Product'}
           </button>
           {error && <span className="text-red-500">{error}</span>} 
         </form>

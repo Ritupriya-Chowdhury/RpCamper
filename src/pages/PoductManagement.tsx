@@ -43,7 +43,8 @@ const ProductManagement = () => {
   };
 
   return (
-    <div className={`p-6 pt-32 ${theme === 'dark' ? 'bg-gray-400' : 'bg-gray-200'}`}>
+   <div className={`${theme === 'dark' ? 'bg-gray-400' : 'bg-gray-200'} md:w-full w-[600px]`} >
+     <div className={`p-6 pt-32 `}>
       <div className="mb-6 flex justify-between items-center">
         <h2 className={`text-2xl font-semibold ${theme === 'dark' ? 'text-sky-700' : ''}`}>Product Management</h2>
         <Link to='/create-product' className="px-4 py-2 bg-sky-500 text-white rounded-md shadow-sm hover:bg-sky-600 transition duration-300">
@@ -55,27 +56,27 @@ const ProductManagement = () => {
       {error && <p className="text-center text-red-500">Error: {error}</p>}
 
       {!loading && !error && (
-        <table className="w-full bg-gray-100 border border-gray-300 rounded-md shadow-md">
+        <table className="w-full bg-gray-100 border border-gray-300  rounded-md shadow-md">
           <thead>
             <tr className="bg-gray-200 border-b border-gray-300">
-              <th className="p-4 text-left">Image</th>
-              <th className="p-4 text-left">Name</th>
-              <th className="p-4 text-left">Price</th>
-              <th className="p-4 text-left">Category</th>
-              <th className="p-4 text-left">Actions</th>
+              <th className="md:p-4 p-2 text-left">Image</th>
+              <th className="md:p-4   text-left">Name</th>
+              <th className="md:p-4 py-2 text-left">Price</th>
+              <th className="md:p-4 p-2 text-left">Category</th>
+              <th className="md:p-4 p-2 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
             {products.map((product: Product) => (
               <tr key={product._id} className="border-b border-gray-300">
-                <td className="p-4">
-                  <img src={product.images[0]} alt={product.name} className="w-16 h-16 object-cover rounded-md" />
+                <td className="md:p-4 p-2">
+                  <img src={product.images[0]} alt={product.name} className="md:w-16 w-8 md:h-16 h-8 object-cover rounded-md" />
                 </td>
-                <td className="p-4">{product.name}</td>
-                <td className="p-4">${product.price}</td>
-                <td className="p-4">{product.category}</td>
-                <td className="p-4">
-                  <Link to={`/update-product/${product._id}`} className="px-4 py-2 bg-sky-500 text-white rounded-md shadow-sm hover:bg-sky-600 transition duration-300 mr-2">
+                <td className="md:p-4 p-2">{product.name}</td>
+                <td className="md:p-4 p-2">${product.price}</td>
+                <td className="md:p-4 p-2">{product.category}</td>
+                <td className="md:p-4 p-2">
+                  <Link to={`/update-product/${product._id}`} className="md:px-4 px-2 py-2 bg-sky-500 text-white rounded-md shadow-sm hover:bg-sky-600 transition duration-300 mr-2">
                     Update
                   </Link>
                   <button
@@ -114,6 +115,7 @@ const ProductManagement = () => {
         </div>
       )}
     </div>
+   </div>
   );
 };
 

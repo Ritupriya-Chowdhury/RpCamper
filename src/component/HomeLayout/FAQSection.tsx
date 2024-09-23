@@ -31,16 +31,16 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-8 bg-gray-200">
-      <h2 className="text-3xl font-semibold text-center mb-6">
+    <section className="py-8 pl-2 bg-gray-200">
+      <h2 className="md:text-3xl text-2xl font-semibold text-center mb-6">
         Frequently Asked Questions
       </h2>
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-xl mx-auto">
         {faqs.map((faq, index) => (
           <div key={index} className="mb-4">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left text-lg font-semibold py-2 border-b"
+              className="md:w-full w-8/12 text-left text-lg font-semibold py-2 border-b"
             >
               {faq.question}
             </button>

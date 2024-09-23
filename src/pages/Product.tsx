@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { fetchProducts } from "../redux/features/productSlice";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ReactImageMagnify from 'react-image-magnify';
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useBeforeUnload } from "../component/RefreshWarning";
 
 const Products = () => {
@@ -13,7 +13,7 @@ const Products = () => {
   const items = useAppSelector((state: RootState) => state.cart.items);
  useBeforeUnload(items.length > 0);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products
   );

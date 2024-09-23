@@ -13,12 +13,16 @@ Discover Your Next Adventure with RpCamper!
 
 ## Project Description
 
-Detailed description of the project, including its purpose and goals.
+It's a camper shop website where one can find different kinds of camping equipment and use these their adventure.
 
 ## Features
+- One can see our products.
+- Can manage our products (add, update, delete).
+- Add product in their cart.
+- Pay in cash.
 
-- List of key features or functionalities.
-- Bullet points are helpful for clarity.
+
+
 
 ## Technology Uses
 
@@ -47,23 +51,18 @@ Detailed description of the project, including its purpose and goals.
 - npm i aos
 - npm install react-image-magnify
 
-
-### Installation Steps
-
-1. Step-by-step instructions on how to install the project.
-2. Provide code examples or commands for clarity.
+### Backend Link
+("https://github.com/Ritupriya-Chowdhury/RpCamper-Server")
 
 ### Configuration
 
-1. Create a `.env` file in the root directory of the project.
-2. Add necessary configuration variables in the `.env` file.
-   Example:
    ```bash
-    PORT=3000
-    DB_URL=your_db_connection_uri
-    API_KEY=your_api_key_here
+ PORT=5000
+ DATABASE_URL=mongodb+srv://rp-camper:rp123@cluster0.vkhsa2w.mongodb.net/RpCamper?retryWrites=true&w=majority&appName=Cluster0
+ api= ("https://rp-camper-server.vercel.app/api/products")
+
    ```
-3. Explain any specific configuration requirements or variables used in your project.
+
 
 ## Usage
 

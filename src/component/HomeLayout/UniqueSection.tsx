@@ -48,7 +48,7 @@ const UniqueSection = () => {
           <img
             src={img1}
             alt=""
-            className="lg:w-11/12 w-8/11 lg:ml-12 md:ml-12 ml-4 rounded-lg"
+            className="lg:w-11/12 w-8/11 lg:ml-12 md:ml-12 ml-1 rounded-lg"
           />
         </div>
       </div>
@@ -58,10 +58,10 @@ const UniqueSection = () => {
           <img
             src={img2}
             alt=""
-            className="lg:w-11/12 w-8/11 lg:ml-12 md:ml-8 ml-4 rounded-lg"
+            className="lg:w-11/12 w-8/11 lg:ml-12 md:ml-8 ml-1 rounded-lg"
           />
         </div>
-        <div className="p-4 rounded-md lg:my-20 md:my-8 mx-4" data-aos="fade-left">
+        <div className="p-4 rounded-md lg:my-20 md:my-8 my-4" data-aos="fade-left">
           <p className="text-2xl mb-2 lg:text-right text-left ">
             I love this shop! The staff was incredibly helpful, and their
             knowledge about camping equipment really shows. I’ll definitely be

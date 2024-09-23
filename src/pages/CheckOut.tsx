@@ -1,10 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../redux/store";
 import { updateStock} from "../redux/features/productSlice";
 import { clearCart } from "../redux/features/cartSlice";
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useBeforeUnload } from "../component/RefreshWarning";
 
 type UserDetail = {
@@ -19,7 +19,7 @@ const Checkout = () => {
   const items = useAppSelector((state: RootState) => state.cart.items);
  useBeforeUnload(items.length > 0);
   const { register, handleSubmit, formState: { errors } } = useForm<UserDetail>();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const cartItems = useSelector((state: RootState) => state.cart.items);

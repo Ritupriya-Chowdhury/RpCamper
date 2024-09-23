@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-      <div className="lg:hidden">
+      <div className="lg:hidden mr-24">
         {isMenuOpen ? (
           <HiMenuAlt1
             onClick={handleMenuToggle}
