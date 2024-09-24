@@ -66,7 +66,7 @@ const FeaturedProducts = () => {
   return (
     <div className={`${theme==='dark'?"bg-gray-600":"bg-white"} py-12`}>
       <p className={`text-center text-2xl font-bold mb-4
-       ${theme==='dark'?'text-sky-300':'text-sky-600'}`}>Select Yours Products</p>
+       ${theme==='dark'?'text-white':'text-blue-800'}`}>Select Yours Products</p>
        (
         <Swiper
           
@@ -95,7 +95,7 @@ const FeaturedProducts = () => {
         >
           {featuredProducts.map((Product) => (
             <SwiperSlide key={Product._id}>
-              <div className={` w-11/12 lg:mx-0 py-2 mx-3 ${theme==='dark'?'shadow-xl': 'shadow-xl'}
+              <div className={` w-11/12 lg:mx-0 py-2 mx-3 ${theme==='dark'?'shadow-xl bg-gray-400': 'shadow-xl bg-gray-200'}
                rounded-lg`} >
                 <img src={Product.image} alt={Product.name} className=" w-72 h-72 mx-auto my-4 border rounded-lg " />
                 <div className='mx-8 mb-4'>
@@ -108,10 +108,14 @@ const FeaturedProducts = () => {
         </Swiper>
       )
       <div className="text-center mt-6">
-        <button
+      <button
           onClick={handleViewMore}
           className={`px-6 py-3 font-bold rounded-lg border-2  
-          ${theme==='dark'?" border-sky-300 text-sky-300 hover:text-white hover:bg-sky-500":" border-sky-600 text-sky-600 hover:text-white hover:bg-sky-600"} transition duration-300`}
+          ${
+            theme === "dark"
+              ? " border-sky-200 text-sky-200 hover:text-white hover:bg-sky-500"
+              : " border-blue-800 text-blue-800 hover:text-white hover:bg-blue-600"
+          } transition duration-300`}
         >
           View More
         </button>

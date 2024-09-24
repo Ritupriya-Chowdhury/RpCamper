@@ -35,12 +35,12 @@ const FAQSection = () => {
       <h2 className="md:text-3xl text-2xl font-semibold text-center mb-6">
         Frequently Asked Questions
       </h2>
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-xl md:mx-auto mx-4">
         {faqs.map((faq, index) => (
           <div key={index} className="mb-4">
             <button
               onClick={() => toggleFAQ(index)}
-              className="md:w-full w-8/12 text-left text-lg font-semibold py-2 border-b"
+              className="w-full   text-left text-lg font-semibold py-2 border-b"
             >
               {faq.question}
             </button>

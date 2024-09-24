@@ -86,12 +86,14 @@ const CategoriesSection = () => {
           <div
             key={category.id}
             className={`mx-12 my-8 cursor-pointer ${
-              theme === "dark" ? "text-sky-600" : "text-sky-500"
+              theme === "dark" ? "text-gray-400" : "text-gray-700"
             }`}
             onClick={() => handleCategoryClick(category.Category)} 
           >
             <div>
-             <p className="text-5xl">{category.image}</p>
+             <p className={`text-5xl ${
+              theme === "dark" ? "text-blue-500" : "text-blue-800"
+            }`}>{category.image}</p>
               <p className="text-xl font-bold">{category.Category}</p>
             </div>
             <div

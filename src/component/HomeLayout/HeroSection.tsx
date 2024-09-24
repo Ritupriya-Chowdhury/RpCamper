@@ -23,16 +23,16 @@ const Hero = () => {
           />
         </div>
         <div className="lg:my-12 lg:mx-8 md:mx-4  mx-2 ">
-          <h1 className={`text-4xl lg:text-6xl font-bold mb-4 ${theme==='dark'?'text-sky-500':'text-sky-600'}`}>
+          <h1 className={`text-4xl lg:text-6xl font-bold mb-4 ${theme==='dark'?'text-sky-300':'text-blue-800'}`}>
             Welcome to RpCamper
           </h1>
-          <p className={`text-lg md:text-2xl my-8 ${theme==='dark'?'text-sky-500':'text-sky-600'}`}>
+          <p className={`text-lg md:text-2xl my-8 ${theme==='dark'?'text-sky-300':'text-blue-800'}`}>
             Your adventure starts here. Find the perfect equipment for your
             adventure.
           </p>
           <Link to='/products' className={`border-2 ml-2 px-3 py-3 lg:mt-2 md:mt-0 mt-3 text-lg font-bold rounded-lg 
-            ${theme==='dark'?"border-sky-500 text-sky-500 hover:border-sky-500 hover:bg-sky-500 hover:text-white"
-            :"border-sky-600 text-sky-600 hover:border-sky-600 hover:bg-sky-600 hover:text-white"}`}>
+            ${theme==='dark'?"border-sky-300 text-sky-300  hover:bg-sky-500 hover:text-white"
+            :"border-blue-700 text-blue-800 hover:border-blue-700 hover:bg-blue-600 hover:text-white"}`}>
             Get Started
           </Link>
         </div>

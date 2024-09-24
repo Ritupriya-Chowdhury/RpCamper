@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import { MdPhoneInTalk } from "react-icons/md";
 import { IoIosMailOpen } from "react-icons/io";
 import { IoLocation } from "react-icons/io5";
-import logo from "../../assets/Header/Logo2.png";
+import logo from "../../assets/Header/Logo.png";
+import logo3 from "../../assets/Header/Logo3.png";
 import { RootState } from "../../redux/store";
 
 
@@ -15,11 +16,11 @@ const Footer = () => {
   return (
     <footer
       className={`px-8   ${
-        theme === "dark" ? "bg-gray-900 text-sky-500" : "bg-gray-300 text-sky-600"
+        theme === "dark" ? "bg-gray-900 text-sky-500" : "bg-gray-300 text-blue-800"
       }`}
     >
     <div className={`border-b-2 pb-12 pt-20 ${
-        theme==='dark'?"border-sky-500":"border-sky-600"
+        theme==='dark'?"border-sky-500":"border-blue-800"
     }`}>
     <div
         className={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 
@@ -93,11 +94,7 @@ const Footer = () => {
         {/* Social Media Links */}
         <div>
           <div className="mb-8">
-            <img
-              src={logo}
-              alt=""
-              className="w-60"
-            />
+          <img src={theme==='dark'?logo3:logo} alt="Logo" className="w-48" />
             <p className={`mt-4 text-lg font-semibold ml-1`}>
               At RPCarRes Car Rentals, we're committed to delivering the perfect
               ride, whether you're embarking on a road trip adventure or
@@ -107,7 +104,7 @@ const Footer = () => {
           <div className="flex space-x-6">
             <p
               className=" transition-colors duration-200 
-              border-2 border-sky-600 hover:border-violet-500 p-2 rounded-full hover:bg-violet-500 hover:text-white"
+              border-2 border-blue-800 hover:border-violet-500 p-2 rounded-full hover:bg-violet-500 hover:text-white"
             >
               <FaFacebookF size={24} />
             </p>
@@ -116,7 +113,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className=" transition-colors duration-200
-               border-2 border-sky-600 hover:border-violet-500 p-2 rounded-full hover:bg-violet-500 hover:text-white"
+               border-2 border-blue-800 hover:border-violet-500 p-2 rounded-full hover:bg-violet-500 hover:text-white"
             >
               <FaLinkedin size={24} />
             </a>
@@ -125,7 +122,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className=" transition-colors duration-200 *
-               border-2 border-sky-600 hover:border-violet-500 p-2 rounded-full hover:bg-violet-500 hover:text-white"
+               border-2 border-blue-800 hover:border-violet-500 p-2 rounded-full hover:bg-violet-500 hover:text-white"
             >
               <FaInstagram size={24} />
             </a>
@@ -199,10 +196,10 @@ const Footer = () => {
           <div className="mt-4">
             <input type="email" placeholder="Enter Your Email" className={`p-4 rounded-lg border-2 
             ${theme==='dark'?"bg-gray-900 text-sky-500 border-sky-500 ":
-            "bg-gray-300 text-sky-700 border-sky-600 "}`} />
+            "bg-gray-300 text-sky-700 border-blue-800 "}`} />
             <button className={`border-2 ml-2 px-2 py-3 lg:mt-2 md:mt-0 mt-3 text-lg font-bold rounded-lg
             ${theme==='dark'?"border-sky-500 hover:border-violet-500 hover:bg-violet-500 hover:text-white"
-            :"border-sky-600 hover:border-violet-500 hover:bg-violet-500 hover:text-white"}`}>Subscribe</button>
+            :"border-blue-800 hover:border-violet-500 hover:bg-violet-500 hover:text-white"}`}>Subscribe</button>
           </div>
         </div>
       </div>

@@ -18,14 +18,14 @@ const UniqueSection = () => {
     <section
       className={`py-8  ${
         theme === "dark"
-          ? "bg-gray-700 text-sky-300"
-          : "bg-gray-100 text-sky-600"
+          ? "bg-gray-700 text-white"
+          : "bg-gray-100 text-blue-800"
       }`}
     >
       <h2 className="text-3xl font-bold text-center mb-6 mt-6">
         Customers Openion
       </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 px-4 lg:mx-12 lg:my-12">
+      <div className={`grid grid-cols-1 lg:grid-cols-2 px-4 lg:mx-12 lg:my-12 ${theme==='dark'?'':"text-gray-900"} `}>
         <div
           className=" p-4 rounded-md lg:my-20 md:my-8 mx-4"
           data-aos="fade-right"
@@ -37,9 +37,7 @@ const UniqueSection = () => {
           </p>
 
           <h4
-            className={`text-2xl font-bold text-left mb-2 ${
-              theme === "dark" ? "text-sky-300" : ""
-            }`}
+            className={`text-2xl font-bold text-left mb-2 }`}
           >
             John Doe
           </h4>
@@ -48,12 +46,12 @@ const UniqueSection = () => {
           <img
             src={img1}
             alt=""
-            className="lg:w-11/12 w-8/11 lg:ml-12 md:ml-12 ml-1 rounded-lg"
+            className="lg:w-11/12 w-8/11 lg:ml-12 md:ml-12 ml-1 rounded-lg "
           />
         </div>
       </div>
 
-      <div className="lg:grid grid-cols-1 lg:grid-cols-2 px-4 mx-4 my-12  flex flex-col-reverse">
+      <div className={`lg:grid grid-cols-1 lg:grid-cols-2 px-4 mx-4 my-12  flex flex-col-reverse ${theme==='dark'?'':'text-gray-900'} `}>
         <div data-aos="fade-right">
           <img
             src={img2}
@@ -68,9 +66,7 @@ const UniqueSection = () => {
             coming back for my next adventure.
           </p>
           <h4
-            className={`text-2xl font-bold lg:text-right text-left mb-2 ${
-              theme === "dark" ? "text-sky-300" : ""
-            }`}
+            className={`text-2xl font-bold lg:text-right text-left mb-2`}
           >
             Jean Smith
           </h4>
