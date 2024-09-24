@@ -52,9 +52,9 @@ It's a camper shop website where one can find different kinds of camping equipme
 - npm install react-image-magnify
 
 ### Backend Link
-("https://github.com/Ritupriya-Chowdhury/RpCamper-Server")
+https://github.com/Ritupriya-Chowdhury/RpCamper-Server
 ### Front end Link
-("https://github.com/Ritupriya-Chowdhury/RpCamper-Server")
+https://66f2689d61e0eaa5964b7f9e--stalwart-lebkuchen-71fb6b.netlify.app
 
 ### Configuration
 
@@ -70,3 +70,9 @@ It's a camper shop website where one can find different kinds of camping equipme
 - Going Product page user can see all product of our shop.
 - User can search product using description or product name.
 <img src='./src/assets/readme/Screenshot (16).png'>
+
+- User can select product according to category
+- User Can search product according to price range and can sort the product according to price .
+- User Can add product the cart number will be increase.
+<img src='./src/assets/readme/Screenshot (17).png'>
+

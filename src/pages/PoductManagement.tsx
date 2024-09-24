@@ -46,7 +46,7 @@ const ProductManagement = () => {
    <div className={`${theme === 'dark' ? 'bg-gray-400' : 'bg-gray-200'} md:w-full w-[600px]`} >
      <div className={`p-6 pt-32 `}>
       <div className="mb-6 flex justify-between items-center">
-        <h2 className={`text-2xl font-semibold ${theme === 'dark' ? 'text-sky-700' : ''}`}>Product Management</h2>
+        <h2 className={`text-2xl font-semibold ${theme === 'dark' ? 'text-blue-800' : ''}`}>Product Management</h2>
         <Link to='/create-product' className="px-4 py-2 bg-sky-500 text-white rounded-md shadow-sm hover:bg-sky-600 transition duration-300">
           Create New Product
         </Link>

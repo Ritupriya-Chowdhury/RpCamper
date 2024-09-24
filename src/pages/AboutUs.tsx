@@ -36,10 +36,10 @@ const AboutUs = () => {
 
   const theme = useAppSelector((state: RootState) => state.theme.theme);
   return (
-    <div className={`mx-auto lg:px-20  px-8 pb-20 pt-32 ${theme==='dark'?'bg-gray-400 text-black':'bg-gray-200'}`}>
+    <div className={`mx-auto lg:px-20  px-8 pb-20 pt-32 ${theme==='dark'?'bg-gray-300 text-black':'bg-gray-200'}`}>
       
       <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-4">Contact Information</h2>
+        <h2 className="text-3xl font-semibold mb-4 ">Contact Information</h2>
         <p className="text-lg">Phone: +123 456 7890</p>
         <p className="text-lg">Email: support@rpcamper.com</p>
         <p className="text-lg">Address: Boalkhali, Chattogram</p>
