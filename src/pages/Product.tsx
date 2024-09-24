@@ -81,7 +81,7 @@ const Products = () => {
           <HiMenuAlt3
             onClick={handleMenuToggle}
             className={`cursor-pointer transition-all ${
-              theme === "light" ? "text-sky-600" : "text-sky-300"
+              theme === "light" ? "text-blue-800" : "text-blue-700"
             }`}
             size={30}
           />
@@ -89,7 +89,7 @@ const Products = () => {
           <HiMenuAlt1
             onClick={handleMenuToggle}
             className={`cursor-pointer transition-all ${
-              theme === "light" ? "text-sky-600" : "text-sky-300"
+              theme === "light" ? "text-blue-800" : "text-blue-700"
             }`}
             size={30}
           />
@@ -97,7 +97,7 @@ const Products = () => {
       </div>
 
       <div
-        className={`filters ${
+        className={`filters mr-4 ${
           isFilterMenuOpen ? "block" : "hidden"
         } lg:block mb-6 ml-4`}
       >
@@ -132,7 +132,7 @@ const Products = () => {
             </select>
           </div>
         </div>
-        <div className="mb-2">
+        <div className="mb-2 grid grid-cols-1 ">
           <input
             type="number"
             placeholder="Min Price"
@@ -142,7 +142,7 @@ const Products = () => {
                 min: Number(e.target.value),
               }))
             }
-            className="px-4 py-2 mb-2 border rounded-md shadow-sm w-full sm:w-auto"
+            className="px-4 py-2 mb-2 border rounded-md shadow-sm w-full sm:w-auto "
           />
           <input
             type="number"
