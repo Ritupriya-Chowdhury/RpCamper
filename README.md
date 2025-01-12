@@ -54,7 +54,7 @@ It's a camper shop website where one can find different kinds of camping equipme
 ### Backend Link
 https://github.com/Ritupriya-Chowdhury/RpCamper-Server
 ### Front end Link
-https://66f2689d61e0eaa5964b7f9e--stalwart-lebkuchen-71fb6b.netlify.app
+https://stalwart-lebkuchen-71fb6b.netlify.app
 
 ### Configuration
 
